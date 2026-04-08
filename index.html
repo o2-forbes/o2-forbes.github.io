@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ollie Forbes — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #080808;
+    --bg2: #101010;
+    --bg3: #181818;
+    --text: #ede9e2;
+    --muted: #7a7670;
+    --muted2: #555250;
+    --accent: #c9b99a;
+    --accent2: #a89070;
+    --border: rgba(255,255,255,0.06);
+    --border2: rgba(255,255,255,0.12);
+    --serif: 'Instrument Serif', Georgia, serif;
+    --sans: 'DM Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(8,8,8,0.9);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 0.5px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 3rem; height: 58px;
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 6rem 3rem 4rem;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .hero-inner {
+    display: flex; align-items: flex-end;
+    gap: 6rem; width: 100%;
+  }
+  .hero-text { flex: 1; }
+  .hero-overline {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 2rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .hero-overline::before { content: ''; width: 32px; height: 0.5px; background: var(--accent2); }
+  .hero-name {
+    font-family: var(--serif);
+    font-size: clamp(3.5rem, 7vw, 6rem);
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    margin-bottom: 2.5rem;
+  }
+  .hero-name .italic { font-style: italic; color: var(--accent); }
+  .hero-desc {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.85;
+    max-width: 460px;
+    font-weight: 300;
+  }
+  .hero-cta {
+    margin-top: 2.5rem;
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text); text-decoration: none;
+    border-bottom: 0.5px solid var(--border2);
+    padding-bottom: 0.4rem;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .hero-cta:hover { color: var(--accent); border-color: var(--accent); }
+
+  .hero-portrait-wrap {
+    flex-shrink: 0;
+    width: 260px;
+    position: relative;
+  }
+  .hero-portrait {
+    width: 260px; height: 320px;
+    overflow: hidden;
+    position: relative;
+  }
+  .hero-portrait img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center top;
+    filter: grayscale(15%) contrast(1.05);
+    display: block;
+  }
+  .portrait-border {
+    position: absolute; inset: 10px -10px -10px 10px;
+    border: 0.5px solid var(--border2);
+    pointer-events: none; z-index: -1;
+  }
+
+  .section-wrap {
+    max-width: 1100px; margin: 0 auto;
+    padding: 7rem 3rem;
+    border-top: 0.5px solid var(--border);
+  }
+  .section-header {
+    display: grid; grid-template-columns: 180px 1fr;
+    gap: 3rem; align-items: start;
+  }
+  .section-label {
+    font-size: 11px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--muted2);
+    padding-top: 0.35rem;
+    position: sticky; top: 80px;
+  }
+  .section-content { min-width: 0; }
+
+  .about-text {
+    font-family: var(--serif);
+    font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+    line-height: 1.75;
+    color: var(--text);
+    font-weight: 400;
+    max-width: 680px;
+  }
+
+  .edu-entry { margin-bottom: 2.5rem; }
+  .edu-entry:last-child { margin-bottom: 0; }
+  .edu-institution { font-size: 16px; font-weight: 500; margin-bottom: 0.25rem; }
+  .edu-degree { font-size: 14px; color: var(--muted); margin-bottom: 0.75rem; }
+  .grade-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .grade-chip {
+    font-size: 12px;
+    padding: 4px 12px;
+    border: 0.5px solid var(--border2);
+    color: var(--muted);
+    letter-spacing: 0.02em;
+  }
+
+  .exp-company-row {
+    display: flex; align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap; gap: 0.75rem;
+  }
+  .exp-company { font-size: 18px; font-family: var(--serif); }
+  .exp-badge {
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--accent); border: 0.5px solid rgba(201,185,154,0.25);
+    padding: 3px 12px;
+  }
+  .exp-list { list-style: none; border-left: 0.5px solid var(--border2); padding-left: 1.5rem; }
+  .exp-list li {
+    font-size: 14px; color: var(--muted);
+    padding: 0.3rem 0; line-height: 1.75;
+    position: relative;
+  }
+  .exp-list li::before {
+    content: '';
+    position: absolute; left: -1.5rem; top: 0.65rem;
+    width: 5px; height: 0.5px;
+    background: var(--muted2);
+  }
+
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .skill-block {
+    border: 0.5px solid var(--border);
+    padding: 1.5rem;
+    background: var(--bg2);
+  }
+  .skill-block-title {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1.25rem;
+  }
+  .skill-item {
+    display: flex; align-items: center; gap: 0.75rem;
+    font-size: 13.5px; color: var(--muted);
+    padding: 0.4rem 0;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .skill-item:last-child { border-bottom: none; }
+  .skill-tick { width: 3px; height: 3px; background: var(--accent2); flex-shrink: 0; }
+
+  .works-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: var(--border); }
+  .work-item { background: var(--bg); overflow: hidden; }
+  .work-thumb {
+    aspect-ratio: 16/9; background: var(--bg3);
+    overflow: hidden; position: relative;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .work-thumb span {
+    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted2);
+  }
+  .work-meta { padding: 1.25rem 1.25rem 1.5rem; }
+  .work-index { font-size: 11px; color: var(--muted2); letter-spacing: 0.08em; margin-bottom: 0.4rem; }
+  .work-name { font-size: 14px; font-weight: 400; line-height: 1.4; }
+
+  .contact-list { display: flex; flex-direction: column; gap: 0; }
+  .contact-row {
+    display: flex; align-items: baseline;
+    padding: 1.25rem 0;
+    border-bottom: 0.5px solid var(--border);
+    gap: 3rem;
+  }
+  .contact-row:first-child { border-top: 0.5px solid var(--border); }
+  .contact-key { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted2); width: 80px; flex-shrink: 0; }
+  .contact-val { font-size: 15px; color: var(--text); }
+  .contact-val a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .contact-val a:hover { color: var(--accent); }
+
+  footer {
+    max-width: 1100px; margin: 0 auto;
+    padding: 2rem 3rem;
+    border-top: 0.5px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  footer p { font-size: 12px; color: var(--muted2); letter-spacing: 0.04em; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-text > * { animation: fadeUp 0.7s ease both; }
+  .hero-overline { animation-delay: 0.1s; }
+  .hero-name { animation-delay: 0.2s; }
+  .hero-desc { animation-delay: 0.3s; }
+  .hero-cta { animation-delay: 0.4s; }
+  .hero-portrait-wrap { animation: fadeUp 0.8s 0.3s ease both; }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links { gap: 1.5rem; }
+    .nav-links a { font-size: 11px; }
+    #hero { padding: 5rem 1.5rem 3rem; }
+    .hero-inner { flex-direction: column-reverse; gap: 2.5rem; align-items: flex-start; }
+    .hero-portrait { width: 180px; height: 220px; }
+    .portrait-border { display: none; }
+    .section-wrap { padding: 4rem 1.5rem; }
+    .section-header { grid-template-columns: 1fr; gap: 1rem; }
+    .section-label { position: static; }
+    .works-grid { grid-template-columns: 1fr; background: none; gap: 1px; }
+    .work-item { border: 0.5px solid var(--border); }
+    .skills-grid { grid-template-columns: 1fr; }
+    footer { padding: 2rem 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+  @media (max-width: 600px) {
+    .nav-links li:nth-child(n+4) { display: none; }
+    .hero-name { font-size: 3rem; }
+    .contact-row { flex-direction: column; gap: 0.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#hero">Ollie Forbes</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div id="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="hero-overline">Digital Media &nbsp;·&nbsp; Motion Graphics &nbsp;·&nbsp; UX</p>
+      <h1 class="hero-name">Ollie<br><span class="italic">Forbes</span></h1>
+      <p class="hero-desc">Digital Media student at UWE. Moving image, motion graphics, and user experience interface design.</p>
+      <a class="hero-cta" href="#work">Selected work &nbsp;→</a>
+    </div>
+    <div class="hero-portrait-wrap">
+      <div class="hero-portrait">
+        <img src="me.jpg" alt="Portrait of Ollie Forbes">
+      </div>
+      <div class="portrait-border"></div>
+    </div>
+  </div>
+</div>
+
+<div class="section-wrap" id="about">
+  <div class="section-header">
+    <p class="section-label">About</p>
+    <div class="section-content">
+      <p class="about-text">
+        Digital Media student currently studying at UWE. Eager to develop my skills and knowledge of motion graphics and moving/still image production with a specific focus on implementing effective user experience interface design. Committed to working well within a team/organisation and producing appropriate, high-standard work that people are proud of.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="section-wrap" id="education">
+  <div class="section-header">
+    <p class="section-label">Education</p>
+    <div class="section-content">
+      <div class="edu-entry">
+        <p class="edu-institution">University of the West of England</p>
+        <p class="edu-degree">BSc (Hons) Digital Media</p>
+      </div>
+      <div class="edu-entry">
+        <p class="edu-institution">A-Levels</p>
+        <div class="grade-row">
+          <span class="grade-chip">Media Studies — A</span>
+          <span class="grade-chip">Geography — B</span>
+          <span class="grade-chip">Combined Science — D*</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-wrap" id="experience">
+  <div class="section-header">
+    <p class="section-label">Experience</p>
+    <div class="section-content">
+      <div class="exp-company-row">
+        <span class="exp-company">Microsol</span>
+        <span class="exp-badge">Part Time</span>
+      </div>
+      <ul class="exp-list">
+        <li>Designed and animated technical explainer content for a pharmaceutical startup, translating complex processes into accessible visuals.</li>
+        <li>Developed storyboards and visual concepts, ensuring alignment with brand identity.</li>
+        <li>Supported brand audit and guidelines creation, improving visual consistency across assets.</li>
+        <li>Presented work to clients and refined outputs through iterative feedback.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="section-wrap" id="skills">
+  <div class="section-header">
+    <p class="section-label">Skills &amp; Toolkit</p>
+    <div class="section-content">
+      <div class="skills-grid">
+        <div class="skill-block">
+          <p class="skill-block-title">Skills</p>
+          <div class="skill-item"><span class="skill-tick"></span>Videography (Post/Pre Production Editing)</div>
+          <div class="skill-item"><span class="skill-tick"></span>Motion Graphics and Animation</div>
+          <div class="skill-item"><span class="skill-tick"></span>User Experience, Research &amp; Interface Design</div>
+          <div class="skill-item"><span class="skill-tick"></span>Visual Communication &amp; Prototyping</div>
+          <div class="skill-item"><span class="skill-tick"></span>Project Management &amp; Team Coordination</div>
+          <div class="skill-item"><span class="skill-tick"></span>2D/3D Asset Creation</div>
+        </div>
+        <div class="skill-block">
+          <p class="skill-block-title">Toolkit</p>
+          <div class="skill-item"><span class="skill-tick"></span>Adobe Creative Suite — Pr, Ae, Ps, Ai, Id</div>
+          <div class="skill-item"><span class="skill-tick"></span>Microsoft 365</div>
+          <div class="skill-item"><span class="skill-tick"></span>Figma / Miro</div>
+          <div class="skill-item"><span class="skill-tick"></span>Blender / Maya</div>
+          <div class="skill-item"><span class="skill-tick"></span>FL Studio</div>
+          <div class="skill-item"><span class="skill-tick"></span>HTML · CSS · JS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-wrap" id="work">
+  <div class="section-header">
+    <p class="section-label">Selected Work</p>
+    <div class="section-content">
+      <div class="works-grid">
+        <div class="work-item">
+          <div class="work-thumb"><span>Coming soon</span></div>
+          <div class="work-meta">
+            <p class="work-index">01</p>
+            <p class="work-name">Advanced Technologies</p>
+          </div>
+        </div>
+        <div class="work-item">
+          <div class="work-thumb"><span>Coming soon</span></div>
+          <div class="work-meta">
+            <p class="work-index">02</p>
+            <p class="work-name">Design Enterprise Studio</p>
+          </div>
+        </div>
+        <div class="work-item">
+          <div class="work-thumb"><span>Coming soon</span></div>
+          <div class="work-meta">
+            <p class="work-index">03</p>
+            <p class="work-name">Comprehensive Creative Technologies Project</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-wrap" id="contact">
+  <div class="section-header">
+    <p class="section-label">Contact</p>
+    <div class="section-content">
+      <div class="contact-list">
+        <div class="contact-row">
+          <span class="contact-key">Phone</span>
+          <span class="contact-val"><a href="tel:07506619310">07506 619 310</a></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-key">Email</span>
+          <span class="contact-val"><a href="mailto:ozforbes1@gmail.com">ozforbes1@gmail.com</a></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-key">LinkedIn</span>
+          <span class="contact-val"><a href="https://linkedin.com/in/ollie-forbes/" target="_blank" rel="noopener">linkedin.com/in/ollie-forbes</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Ollie Forbes &nbsp;·&nbsp; 2026</p>
+  <p>Digital Media · UWE Bristol</p>
+</footer>
+
+</body>
+</html>
