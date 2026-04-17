@@ -363,6 +363,48 @@
       .work-thumb-link:hover .work-coming-arrow { opacity: 1; transform: translateX(4px); }
       .work-coming-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted2); transition: color 0.2s; }
       .work-coming-arrow { font-size: 14px; color: var(--accent); opacity: 0; transform: translateX(0); transition: opacity 0.2s, transform 0.2s; }
+
+      .nav-cv-btn {
+        font-size: 11px !important;
+        color: var(--accent) !important;
+        border: 0.5px solid rgba(201,185,154,0.4);
+        padding: 5px 14px;
+        transition: background 0.2s, color 0.2s !important;
+      }
+      .nav-cv-btn:hover {
+        background: rgba(201,185,154,0.08) !important;
+        color: var(--accent) !important;
+      }
+
+      .cv-download-btn {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1.5px;
+        padding: 1.25rem 1.5rem;
+        background: var(--bg2);
+        border: 0.5px solid rgba(201,185,154,0.15);
+        text-decoration: none;
+        transition: background 0.2s, border-color 0.2s;
+      }
+      .cv-download-btn:hover {
+        background: var(--bg3);
+        border-color: rgba(201,185,154,0.35);
+      }
+      .cv-download-label {
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+      .cv-download-arrow {
+        font-size: 18px;
+        color: var(--accent);
+        transition: transform 0.2s;
+      }
+      .cv-download-btn:hover .cv-download-arrow {
+        transform: translateY(3px);
+      }
       .work-meta {
         padding: 1.25rem 1.25rem 1.5rem;
       }
@@ -535,6 +577,7 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#work">Work</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="CV.pdf" download="Ollie_Forbes_CV.pdf" class="nav-cv-btn">Download CV</a></li>
       </ul>
     </nav>
 
@@ -723,6 +766,10 @@
               </div>
             </div>
           </div>
+          <a class="cv-download-btn" href="CV.pdf" download="Ollie_Forbes_CV.pdf">
+            <span class="cv-download-label">Download CV</span>
+            <span class="cv-download-arrow">&#8659;</span>
+          </a>
         </div>
       </div>
     </div>
