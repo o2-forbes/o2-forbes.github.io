@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Media Studio — Ollie Forbes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root { --bg:#080808;--bg2:#101010;--bg3:#181818;--text:#ede9e2;--muted:#7a7670;--muted2:#555250;--accent:#c9b99a;--accent2:#a89070;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.12);--serif:"Instrument Serif",Georgia,serif;--sans:"DM Sans","Helvetica Neue",sans-serif; }
+  html { scroll-behavior: smooth; }
+  body { background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased; }
+  nav { position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,8,8,0.9);backdrop-filter:blur(16px);border-bottom:0.5px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:58px; }
+  .nav-logo { font-family:var(--serif);font-size:18px;color:var(--text);text-decoration:none; }
+  .nav-back { font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;display:flex;align-items:center;gap:0.5rem; }
+  .nav-back:hover { color:var(--text); }
+  .hero { min-height:100vh;display:flex;align-items:center;max-width:1100px;margin:0 auto;padding:6rem 3rem 4rem; }
+  .hero-inner { max-width:640px; }
+  .hero-index { font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem; }
+  .hero-index::before { content:"";width:32px;height:0.5px;background:var(--accent2); }
+  h1 { font-family:var(--serif);font-size:clamp(2.5rem,5vw,4rem);font-weight:400;line-height:1.05;letter-spacing:-0.01em;margin-bottom:2rem; }
+  .hero-desc { font-size:15px;color:var(--muted);line-height:1.85;font-weight:300; }
+  .coming-banner { max-width:1100px;margin:0 auto;padding:0 3rem 8rem; }
+  .banner-box { border:0.5px solid var(--border2);padding:4rem 3rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;text-align:center;background:var(--bg2); }
+  .banner-label { font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted2); }
+  .banner-title { font-family:var(--serif);font-size:1.8rem;color:var(--text); }
+  .banner-sub { font-size:13px;color:var(--muted);max-width:380px; }
+  .back-link { margin-top:1.5rem;display:inline-flex;align-items:center;gap:0.5rem;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:0.5px solid rgba(201,185,154,0.3);padding-bottom:0.3rem;transition:opacity 0.2s; }
+  .back-link:hover { opacity:0.7; }
+  @media (max-width:768px) { nav{padding:0 1.5rem;} .hero{padding:5rem 1.5rem 3rem;} .coming-banner{padding:0 1.5rem 5rem;} .banner-box{padding:2.5rem 1.5rem;} }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">Ollie Forbes</a>
+  <a class="nav-back" href="index.html">&#8592; Back</a>
+</nav>
+<div class="hero">
+  <div class="hero-inner">
+    <p class="hero-index">Year 1 — 03</p>
+    <h1>Media Studio</h1>
+    <p class="hero-desc">This project page is coming soon. Check back for full case study, process work, and final outputs.</p>
+  </div>
+</div>
+<div class="coming-banner">
+  <div class="banner-box">
+    <p class="banner-label">Status</p>
+    <p class="banner-title">Coming soon</p>
+    <p class="banner-sub">This case study is currently being prepared. It will include project overview, process documentation, and final deliverables.</p>
+    <a class="back-link" href="index.html">&#8592; Return to portfolio</a>
+  </div>
+</div>
+</body>
+</html>
