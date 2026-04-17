@@ -565,6 +565,19 @@
           gap: 0.25rem;
         }
       }
+
+      .nav-links a.active { color: var(--text); }
+
+      .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+      .reveal.visible { opacity: 1; transform: translateY(0); }
+
+      .about-focus { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 0.5px solid var(--border); }
+      .about-focus-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted2); margin-bottom: 0.6rem; }
+      .about-focus-text { font-size: 14px; color: var(--muted); line-height: 1.8; max-width: 580px; }
+
+      .contact-open { margin-top: 2rem; padding: 1.25rem 1.5rem; background: var(--bg2); border: 0.5px solid var(--border); }
+      .contact-open-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+      .contact-open-text { font-size: 13px; color: var(--muted); line-height: 1.7; }
     </style>
   </head>
   <body>
@@ -606,7 +619,7 @@
       </div>
     </div>
 
-    <div class="section-wrap" id="about">
+    <div class="section-wrap reveal" id="about">
       <div class="section-header">
         <p class="section-label">About</p>
         <div class="section-content">
@@ -618,11 +631,15 @@
             team/organisation and producing appropriate, high-standard work that
             people are proud of.
           </p>
+          <div class="about-focus">
+            <p class="about-focus-label">Focus</p>
+            <p class="about-focus-text">Motion graphics, moving and still image production, and interface design shaped into a restrained, editorial portfolio experience.</p>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="section-wrap" id="education">
+    <div class="section-wrap reveal" id="education">
       <div class="section-header">
         <p class="section-label">Education</p>
         <div class="section-content">
@@ -643,7 +660,7 @@
       </div>
     </div>
 
-    <div class="section-wrap" id="experience">
+    <div class="section-wrap reveal" id="experience">
       <div class="section-header">
         <p class="section-label">Experience</p>
         <div class="section-content">
@@ -674,7 +691,7 @@
       </div>
     </div>
 
-    <div class="section-wrap" id="skills">
+    <div class="section-wrap reveal" id="skills">
       <div class="section-header">
         <p class="section-label">Skills &amp; Toolkit</p>
         <div class="section-content">
@@ -731,7 +748,7 @@
       </div>
     </div>
 
-    <div class="section-wrap" id="work">
+    <div class="section-wrap reveal" id="work">
       <div class="section-header">
         <p class="section-label">Selected Work</p>
         <div class="section-content">
@@ -775,7 +792,7 @@
       </div>
     </div>
 
-    <div class="section-wrap" id="portfolio">
+    <div class="section-wrap reveal" id="portfolio">
       <div class="section-header">
         <p class="section-label">Portfolio</p>
         <div class="section-content">
@@ -866,7 +883,7 @@
       </div>
     </div>
 
-    <div class="section-wrap" id="contact">
+    <div class="section-wrap reveal" id="contact">
       <div class="section-header">
         <p class="section-label">Contact</p>
         <div class="section-content">
@@ -896,9 +913,42 @@
               >
             </div>
           </div>
+          <div class="contact-open">
+            <p class="contact-open-label">Open to connect</p>
+            <p class="contact-open-text">Available for freelance work, collaborations, and graduate opportunities. Feel free to reach out.</p>
+          </div>
         </div>
       </div>
     </div>
 
     <footer>
-    
+      <p>Ollie Forbes &nbsp;·&nbsp; 2026</p>
+      <p>Digital Media · UWE Bristol</p>
+    </footer>
+  
+    <script>
+      (function() {
+        const sections = document.querySelectorAll('.section-wrap[id], #hero');
+        const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+
+        const revealEls = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+        }, { threshold: 0.08 });
+        revealEls.forEach(el => observer.observe(el));
+
+        const navObserver = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) {
+              navLinks.forEach(a => a.classList.remove('active'));
+              const id = e.target.getAttribute('id');
+              const active = document.querySelector('.nav-links a[href="#' + id + '"]');
+              if (active) active.classList.add('active');
+            }
+          });
+        }, { rootMargin: '-40% 0px -55% 0px' });
+        sections.forEach(s => navObserver.observe(s));
+      })();
+    </script>
+</body>
+</html>
