@@ -364,6 +364,38 @@
       .work-coming-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted2); transition: color 0.2s; }
       .work-coming-arrow { font-size: 14px; color: var(--accent); opacity: 0; transform: translateX(0); transition: opacity 0.2s, transform 0.2s; }
 
+
+      .work-thumb-link {
+        text-decoration: none;
+        cursor: pointer;
+        padding: 0;
+      }
+      .work-thumb-link .thumb-svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+        transition: transform 0.6s ease, opacity 0.4s ease;
+      }
+      .work-thumb-link:hover .thumb-svg {
+        transform: scale(1.04);
+      }
+      .work-thumb-link::after {
+        content: "→";
+        position: absolute;
+        bottom: 14px;
+        right: 16px;
+        font-size: 14px;
+        color: var(--accent);
+        opacity: 0;
+        transform: translateX(-6px);
+        transition: opacity 0.3s, transform 0.3s;
+        z-index: 2;
+      }
+      .work-thumb-link:hover::after {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
       .nav-cv-btn {
         font-size: 11px !important;
         color: var(--accent) !important;
@@ -755,8 +787,36 @@
           <div class="works-grid">
             <div class="work-item">
               <a class="work-thumb work-thumb-link" href="advanced-technologies.html">
-                <span class="work-coming-label">Coming soon</span>
-                <span class="work-coming-arrow">&#8594;</span>
+                <svg class="thumb-svg" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                  <rect width="320" height="180" fill="#101010"/>
+                  <!-- subtle grid -->
+                  <g stroke="#c9b99a" stroke-width="0.3" opacity="0.08">
+                    <line x1="0" y1="135" x2="320" y2="135"/>
+                    <line x1="80" y1="0" x2="80" y2="180"/>
+                    <line x1="160" y1="0" x2="160" y2="180"/>
+                    <line x1="240" y1="0" x2="240" y2="180"/>
+                  </g>
+                  <!-- chair -->
+                  <g stroke="#a89070" stroke-width="0.8" fill="none" opacity="0.55">
+                    <line x1="135" y1="135" x2="135" y2="105"/>
+                    <line x1="135" y1="105" x2="180" y2="105"/>
+                    <line x1="180" y1="135" x2="180" y2="105"/>
+                    <line x1="125" y1="135" x2="190" y2="135"/>
+                  </g>
+                  <!-- slumped figure: head, curved torso to seat -->
+                  <g stroke="#c9b99a" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="148" cy="70" r="6"/>
+                    <path d="M148 76 Q146 92 152 105 L172 105"/>
+                    <!-- arm hanging -->
+                    <path d="M150 92 Q142 100 138 115"/>
+                  </g>
+                  <!-- faint motion / time lines -->
+                  <g stroke="#c9b99a" stroke-width="0.4" opacity="0.25">
+                    <line x1="200" y1="60" x2="240" y2="60"/>
+                    <line x1="210" y1="70" x2="245" y2="70"/>
+                    <line x1="220" y1="80" x2="250" y2="80"/>
+                  </g>
+                </svg>
               </a>
               <div class="work-meta">
                 <p class="work-index">01</p>
@@ -765,8 +825,30 @@
             </div>
             <div class="work-item">
               <a class="work-thumb work-thumb-link" href="design-enterprise-studio.html">
-                <span class="work-coming-label">Coming soon</span>
-                <span class="work-coming-arrow">&#8594;</span>
+                <svg class="thumb-svg" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                  <rect width="320" height="180" fill="#101010"/>
+                  <!-- target rings (right side) -->
+                  <g stroke="#c9b99a" fill="none" stroke-width="0.6">
+                    <circle cx="220" cy="90" r="8" opacity="0.95"/>
+                    <circle cx="220" cy="90" r="20" opacity="0.55"/>
+                    <circle cx="220" cy="90" r="34" opacity="0.3"/>
+                    <circle cx="220" cy="90" r="50" opacity="0.15"/>
+                  </g>
+                  <!-- center dot -->
+                  <circle cx="220" cy="90" r="2" fill="#c9b99a"/>
+                  <!-- device (left, abstract) -->
+                  <g stroke="#a89070" stroke-width="0.8" fill="none" opacity="0.7">
+                    <rect x="60" y="78" width="34" height="24" rx="2"/>
+                    <line x1="68" y1="86" x2="86" y2="86"/>
+                    <line x1="68" y1="92" x2="80" y2="92"/>
+                  </g>
+                  <!-- trajectory line -->
+                  <g stroke="#c9b99a" stroke-width="0.5" stroke-dasharray="2 3" opacity="0.6">
+                    <path d="M94 90 Q140 60 170 90 Q190 110 212 90" fill="none"/>
+                  </g>
+                  <!-- arrowhead -->
+                  <path d="M210 87 L215 90 L210 93" fill="none" stroke="#c9b99a" stroke-width="0.7" opacity="0.7"/>
+                </svg>
               </a>
               <div class="work-meta">
                 <p class="work-index">02</p>
@@ -809,8 +891,30 @@
             </div>
             <div class="work-item">
               <a class="work-thumb work-thumb-link" href="introduction-to-creative-coding.html">
-                <span class="work-coming-label">Coming soon</span>
-                <span class="work-coming-arrow">&#8594;</span>
+                <svg class="thumb-svg" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                  <rect width="320" height="180" fill="#101010"/>
+                  <!-- sun / moon disc -->
+                  <circle cx="240" cy="62" r="22" fill="none" stroke="#c9b99a" stroke-width="0.6" opacity="0.5"/>
+                  <circle cx="240" cy="62" r="22" fill="#c9b99a" opacity="0.04"/>
+                  <!-- distant skyline (back layer) -->
+                  <g stroke="#a89070" stroke-width="0.5" fill="none" opacity="0.35">
+                    <path d="M0 130 L20 130 L20 110 L40 110 L40 122 L60 122 L60 100 L80 100 L80 118 L100 118 L100 95 L120 95 L120 115 L140 115 L140 105 L160 105 L160 125 L180 125 L180 100 L200 100 L200 120 L220 120 L220 108 L240 108 L240 118 L260 118 L260 100 L280 100 L280 115 L300 115 L300 122 L320 122"/>
+                  </g>
+                  <!-- mid skyline -->
+                  <g stroke="#c9b99a" stroke-width="0.7" fill="none" opacity="0.7">
+                    <path d="M0 145 L15 145 L15 125 L35 125 L35 138 L55 138 L55 115 L75 115 L75 130 L95 130 L95 108 L115 108 L115 135 L135 135 L135 120 L155 120 L155 140 L175 140 L175 118 L195 118 L195 132 L215 132 L215 122 L235 122 L235 138 L255 138 L255 128 L275 128 L275 142 L295 142 L295 132 L320 132"/>
+                  </g>
+                  <!-- ground line -->
+                  <line x1="0" y1="155" x2="320" y2="155" stroke="#c9b99a" stroke-width="0.4" opacity="0.4"/>
+                  <!-- tower (Tokyo tower silhouette) -->
+                  <g stroke="#c9b99a" stroke-width="0.6" fill="none" opacity="0.85">
+                    <line x1="160" y1="75" x2="155" y2="155"/>
+                    <line x1="160" y1="75" x2="165" y2="155"/>
+                    <line x1="158" y1="100" x2="162" y2="100"/>
+                    <line x1="156" y1="125" x2="164" y2="125"/>
+                    <line x1="160" y1="68" x2="160" y2="75"/>
+                  </g>
+                </svg>
               </a>
               <div class="work-meta">
                 <p class="work-index">Y1 — 02</p>
@@ -819,8 +923,29 @@
             </div>
             <div class="work-item">
               <a class="work-thumb work-thumb-link" href="media-studio.html">
-                <span class="work-coming-label">Coming soon</span>
-                <span class="work-coming-arrow">&#8594;</span>
+                <svg class="thumb-svg" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                  <rect width="320" height="180" fill="#101010"/>
+                  <!-- outer ring -->
+                  <circle cx="160" cy="90" r="55" fill="none" stroke="#c9b99a" stroke-width="0.7" opacity="0.8"/>
+                  <circle cx="160" cy="90" r="62" fill="none" stroke="#a89070" stroke-width="0.4" opacity="0.4"/>
+                  <!-- aperture blades (6) -->
+                  <g stroke="#c9b99a" stroke-width="0.7" fill="none" opacity="0.85">
+                    <path d="M160 35 L195 70 L160 90 Z"/>
+                    <path d="M213 60 L213 105 L160 90 Z"/>
+                    <path d="M213 120 L160 145 L160 90 Z"/>
+                    <path d="M160 145 L107 120 L160 90 Z"/>
+                    <path d="M107 105 L107 60 L160 90 Z"/>
+                    <path d="M125 70 L160 35 L160 90 Z"/>
+                  </g>
+                  <!-- subtle fills -->
+                  <g fill="#c9b99a" opacity="0.04">
+                    <path d="M160 35 L195 70 L160 90 Z"/>
+                    <path d="M213 120 L160 145 L160 90 Z"/>
+                    <path d="M107 105 L107 60 L160 90 Z"/>
+                  </g>
+                  <!-- center dot -->
+                  <circle cx="160" cy="90" r="1.5" fill="#c9b99a"/>
+                </svg>
               </a>
               <div class="work-meta">
                 <p class="work-index">Y1 — 03</p>
@@ -829,8 +954,40 @@
             </div>
             <div class="work-item">
               <a class="work-thumb work-thumb-link" href="principles-of-3d-environments.html">
-                <span class="work-coming-label">Coming soon</span>
-                <span class="work-coming-arrow">&#8594;</span>
+                <svg class="thumb-svg" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                  <rect width="320" height="180" fill="#101010"/>
+                  <!-- isometric ground plane -->
+                  <g stroke="#a89070" stroke-width="0.3" opacity="0.25">
+                    <path d="M40 130 L160 70 L280 130 L160 190 Z" fill="none"/>
+                    <line x1="80" y1="110" x2="200" y2="170"/>
+                    <line x1="120" y1="90" x2="240" y2="150"/>
+                    <line x1="200" y1="90" x2="80" y2="150"/>
+                    <line x1="240" y1="110" x2="120" y2="170"/>
+                  </g>
+                  <!-- main building base -->
+                  <g stroke="#c9b99a" stroke-width="0.8" fill="none" opacity="0.85">
+                    <!-- base rectangle (iso) -->
+                    <path d="M120 130 L160 110 L200 130 L160 150 Z"/>
+                    <!-- left wall up -->
+                    <path d="M120 130 L120 95 L160 75 L160 110"/>
+                    <!-- right wall up -->
+                    <path d="M200 130 L200 95 L160 75"/>
+                    <!-- back walls (faint) -->
+                    <path d="M120 95 L160 115 L200 95" opacity="0.4"/>
+                    <line x1="160" y1="75" x2="160" y2="115" opacity="0.4"/>
+                    <!-- roof ridge -->
+                    <path d="M120 95 L160 65 L200 95"/>
+                    <line x1="160" y1="65" x2="160" y2="75"/>
+                  </g>
+                  <!-- door -->
+                  <g stroke="#c9b99a" stroke-width="0.5" fill="none" opacity="0.6">
+                    <path d="M155 130 L155 118 L165 113 L165 125"/>
+                  </g>
+                  <!-- chimney smoke (delicate) -->
+                  <g stroke="#c9b99a" stroke-width="0.4" fill="none" opacity="0.4" stroke-linecap="round">
+                    <path d="M180 70 Q175 60 182 52 Q188 45 184 38"/>
+                  </g>
+                </svg>
               </a>
               <div class="work-meta">
                 <p class="work-index">Y1 — 04</p>
@@ -839,8 +996,33 @@
             </div>
             <div class="work-item">
               <a class="work-thumb work-thumb-link" href="creative-and-physical-computing.html">
-                <span class="work-coming-label">Coming soon</span>
-                <span class="work-coming-arrow">&#8594;</span>
+                <svg class="thumb-svg" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                  <rect width="320" height="180" fill="#101010"/>
+                  <!-- dot grid -->
+                  <g fill="#a89070" opacity="0.5">
+                    <circle cx="80" cy="40" r="1.2"/><circle cx="120" cy="40" r="1.2"/><circle cx="160" cy="40" r="1.2"/><circle cx="200" cy="40" r="1.2"/><circle cx="240" cy="40" r="1.2"/>
+                    <circle cx="80" cy="70" r="1.2"/><circle cx="120" cy="70" r="1.2"/><circle cx="160" cy="70" r="1.2"/><circle cx="200" cy="70" r="1.2"/><circle cx="240" cy="70" r="1.2"/>
+                    <circle cx="80" cy="100" r="1.2"/><circle cx="120" cy="100" r="1.2"/><circle cx="160" cy="100" r="1.2"/><circle cx="200" cy="100" r="1.2"/><circle cx="240" cy="100" r="1.2"/>
+                    <circle cx="80" cy="130" r="1.2"/><circle cx="120" cy="130" r="1.2"/><circle cx="160" cy="130" r="1.2"/><circle cx="200" cy="130" r="1.2"/><circle cx="240" cy="130" r="1.2"/>
+                  </g>
+                  <!-- circuit path connecting select dots -->
+                  <g stroke="#c9b99a" stroke-width="0.9" fill="none" opacity="0.85" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M80 100 L120 100 L120 70 L200 70 L200 130 L240 130"/>
+                  </g>
+                  <!-- emphasised nodes -->
+                  <g fill="#c9b99a">
+                    <circle cx="80" cy="100" r="2.5"/>
+                    <circle cx="120" cy="70" r="2.5"/>
+                    <circle cx="200" cy="130" r="2.5"/>
+                    <circle cx="240" cy="130" r="2.5"/>
+                  </g>
+                  <!-- block (cube) at one node -->
+                  <g stroke="#c9b99a" stroke-width="0.6" fill="none" opacity="0.7">
+                    <path d="M155 60 L165 55 L175 60 L175 75 L165 80 L155 75 Z"/>
+                    <line x1="165" y1="55" x2="165" y2="80" opacity="0.5"/>
+                    <line x1="155" y1="60" x2="175" y2="60" opacity="0.5"/>
+                  </g>
+                </svg>
               </a>
               <div class="work-meta">
                 <p class="work-index">Y2 — 01</p>
@@ -849,8 +1031,29 @@
             </div>
             <div class="work-item">
               <a class="work-thumb work-thumb-link" href="media-production.html">
-                <span class="work-coming-label">Coming soon</span>
-                <span class="work-coming-arrow">&#8594;</span>
+                <svg class="thumb-svg" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                  <rect width="320" height="180" fill="#101010"/>
+                  <!-- three offset frames suggesting motion / parallax -->
+                  <g stroke="#c9b99a" fill="none">
+                    <rect x="90" y="55" width="100" height="65" stroke-width="0.5" opacity="0.25"/>
+                    <rect x="105" y="62" width="100" height="65" stroke-width="0.6" opacity="0.5"/>
+                    <rect x="120" y="69" width="100" height="65" stroke-width="0.8" opacity="0.95"/>
+                  </g>
+                  <!-- play triangle in front frame -->
+                  <g fill="#c9b99a" opacity="0.85">
+                    <path d="M163 90 L163 113 L182 101.5 Z"/>
+                  </g>
+                  <!-- horizon line through frames suggesting depth -->
+                  <line x1="60" y1="101" x2="260" y2="101" stroke="#a89070" stroke-width="0.3" opacity="0.3"/>
+                  <!-- timecode ticks -->
+                  <g stroke="#c9b99a" stroke-width="0.4" opacity="0.5">
+                    <line x1="50" y1="148" x2="60" y2="148"/>
+                    <line x1="68" y1="148" x2="78" y2="148"/>
+                    <line x1="86" y1="148" x2="96" y2="148"/>
+                    <line x1="104" y1="148" x2="114" y2="148"/>
+                    <line x1="122" y1="148" x2="132" y2="148"/>
+                  </g>
+                </svg>
               </a>
               <div class="work-meta">
                 <p class="work-index">Y2 — 02</p>
